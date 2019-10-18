@@ -1,10 +1,10 @@
 {
   "name": "exstat",
   "version": "1.0.0",
-  "description": "useful mathematics / cryptography-related function",
+  "description": "useful mathematics / cryptography-related functions",
   "main": "index.js",
   "scripts": {
-    "test": "node exstat.test.js",
+    "test": "mocha exstat.test.js",
     "start": "node ."
   },
   "repository": {

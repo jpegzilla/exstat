@@ -6,7 +6,18 @@ const number = {};
 
 // array methods
 
+/**
+ * normalize - normalizes an array to a certain range, or the set [0, 1] by default
+ *
+ * @param {array}  set        set of numbers to normalize
+ * @param {array} range range to normalize to
+ *
+ * @returns {array} normalized set of numbers
+ */
 const normalize = (set, range = [0, 1]) => {
+  if (range.length > 2 || !Array.isArray(set) || !Array.isArray(range))
+    throw new Error("invalid arguments passed to normalize");
+
   const min = Math.min(...set);
   let newSet = set.map(n => n - min);
   const max = Math.max(...newSet);
@@ -22,14 +33,34 @@ const normalize = (set, range = [0, 1]) => {
   return newSet.map(n => n * newRange + initial);
 };
 
+/**
+ * median - finds the median of an array
+ *
+ * @param {array} arr array of numbers
+ *
+ * @returns {number} the median of the array of numbers
+ */
 const median = arr => {
+  if (!arr.every(n => typeof n == "number"))
+    throw new Error("invalid argument passed to median");
+
   const mid = Math.floor(arr.length / 2),
     nums = [...arr].sort((a, b) => a - b);
 
   return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
 };
 
+/**
+ * mean - finds the median of an array
+ *
+ * @param {array} arr array of numbers
+ *
+ * @returns {number} the median of the array
+ */
 const mean = arr => {
+  if (!arr.every(n => typeof n == "number"))
+    throw new Error("invalid argument passed to mean");
+
   const n = arr.length / arr[0];
   let sum = 0;
 
@@ -96,7 +127,7 @@ const binToHex = str => {
   if (dec == NaN) throw new Error("invalid input to binToHex");
   return dec.toString(16);
 };
-console.log(binToHex("10010011"));
+
 // number methods
 
 const mod = (a, b) => ((a % b) + b) % b;
