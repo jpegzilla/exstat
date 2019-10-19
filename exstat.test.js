@@ -5,6 +5,7 @@ const exstat = require(".");
 describe("exstat tests", function() {
   describe("> normalize an array to a certain range", function() {
     const test = exstat.array.normalize([2, 3, 4, 5, 6], [0, 1]);
+
     it(`should return an array of numbers with correct upper and lower bounds`, function() {
       assert.equal(test[0], 0);
       assert.equal(test[test.length - 1], 1);
