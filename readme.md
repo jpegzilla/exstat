@@ -13,6 +13,9 @@ const { array: a, string: s, number: n } = require("exstat");
 
 a.normalize([2, 3, 4, 5, 6], [0, 1])
 // returns [ 0, 0.25, 0.5, 0.75, 1 ]
+
+n.inRange(0.5, [0, 1])
+// returns true
 ```
 
 detailed information is below.
@@ -43,6 +46,9 @@ detailed information is below.
 </dd>
 <dt><a href="#binToHex">binToHex(str)</a> ⇒ <code>string</code></dt>
 <dd><p>binToHex - convert binary number to hex number</p>
+</dd>
+<dt><a href="#inRange">inRange(num, range)</a> ⇒ <code>boolean</code></dt>
+<dd><p>inRange - determine wether a number is within a certain range</p>
 </dd>
 <dt><a href="#mod">mod(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>mod - finds the remainder after division of one number by another</p>
@@ -150,6 +156,19 @@ binToHex - convert binary number to hex number
 | param | type | description |
 | --- | --- | --- |
 | str | <code>string</code> | binary number to convert |
+
+<a name="inRange"></a>
+
+## inRange(num, range) ⇒ <code>boolean</code>
+inRange - determine wether a number is within a certain range
+
+**kind**: global function
+**returns**: <code>boolean</code> - returns true if number is in range, false if not.
+
+| param | type | description |
+| --- | --- | --- |
+| num | <code>number</code> | the number to check |
+| range | <code>array</code> | the range that num should be within |
 
 <a name="mod"></a>
 

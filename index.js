@@ -181,6 +181,21 @@ const binToHex = str => {
 // number methods
 
 /**
+ * inRange - determine wether a number is within a certain range
+ *
+ * @param {number} num   the number to check
+ * @param {array} range the range that num should be within
+ *
+ * @returns {boolean} returns true if number is in range, false if not.
+ */
+const inRange = (num, range) => {
+  if (typeof num != "number" || !Array.isArray(range))
+    throw new Error("invalid argument passed to inRange");
+
+  return range[0] <= num ? (range[1] >= num ? true : false) : false;
+};
+
+/**
  * mod - finds the remainder after division of one number by another
  *
  * @param {number} a number to perform modulo operation on
@@ -231,7 +246,8 @@ exstat.string = {
 
 exstat.number = {
   mod: mod,
-  padZero: padZero
+  padZero: padZero,
+  inRange: inRange
 };
 
 module.exports = exstat;
