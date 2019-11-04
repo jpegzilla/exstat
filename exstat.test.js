@@ -1,5 +1,5 @@
 const assert = require("assert");
-var { expect } = require("chai");
+const { expect } = require("chai");
 const exstat = require(".");
 
 describe("exstat tests", function() {
